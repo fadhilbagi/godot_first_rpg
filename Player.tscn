@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c05hqagofqom2"]
+
+[ext_resource type="SpriteFrames" uid="uid://bf4a5xsoyq1yo" path="res://Player.tres" id="1_qc3ti"]
+[ext_resource type="Script" path="res://Player.gd" id="2_b26dn"]
+
+[node name="Player" type="AnimatedSprite2D"]
+position = Vector2(-4, -3)
+sprite_frames = ExtResource("1_qc3ti")
+script = ExtResource("2_b26dn")
