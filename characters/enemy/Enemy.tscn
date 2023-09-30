@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctkuvofk1bp6v"]
+
+[ext_resource type="SpriteFrames" uid="uid://cvj778tecl3qn" path="res://characters/enemy/Enemy.tres" id="1_ua3gk"]
+[ext_resource type="Script" path="res://characters/enemy/Enemy.gd" id="2_vpaj8"]
+[ext_resource type="PackedScene" uid="uid://dd8uax4lsp42s" path="res://feature/actionbar/action_bar.tscn" id="3_glqb5"]
+[ext_resource type="PackedScene" uid="uid://dl835fwjaq7fw" path="res://feature/healthbar/health_bar.tscn" id="3_wqqju"]
+[ext_resource type="Script" path="res://characters/enemy/EnemyAlgo.gd" id="4_nrtb3"]
+
+[node name="Enemy" type="AnimatedSprite2D"]
+position = Vector2(0, -2)
+scale = Vector2(0.1, 0.1)
+sprite_frames = ExtResource("1_ua3gk")
+script = ExtResource("2_vpaj8")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_wqqju")]
+offset_left = -70.0
+offset_top = 150.0
+offset_right = 70.0
+offset_bottom = 177.0
+
+[node name="ActionBar" parent="." instance=ExtResource("3_glqb5")]
+
+[node name="EnemyAlgo" type="Node2D" parent="."]
+script = ExtResource("4_nrtb3")

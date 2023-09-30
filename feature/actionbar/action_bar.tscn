@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd8uax4lsp42s"]
+
+[ext_resource type="Script" path="res://feature/actionbar/action_bar.gd" id="1_gybom"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qpoa"]
+bg_color = Color(0.941176, 0.843137, 0, 1)
+
+[node name="ActionBar" type="ProgressBar"]
+offset_left = -70.0
+offset_top = 180.0
+offset_right = 69.0
+offset_bottom = 207.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_2qpoa")
+max_value = 1000.0
+value = 100.0
+script = ExtResource("1_gybom")
