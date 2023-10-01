@@ -18,10 +18,10 @@ func _ready():
 	get_tree().call_group(&"players", &"queue_free")
 	
 	player = player_scene.instantiate()
-	prepareAndInstanciate(player,player_spawn_location,0)
+	prepareAndInstantiate(player,player_spawn_location,0)
 	
 	mob = mob_scene.instantiate()
-	prepareAndInstanciate(mob,mob_spawn_location,0)
+	prepareAndInstantiate(mob,mob_spawn_location,0)
 	
 	$HUD/Skills.hide()
 	$SpeedTimer.start()
@@ -30,7 +30,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func prepareAndInstanciate(object,location,index):
+func prepareAndInstantiate(object,location,index):
 	if(object.name == "Player"):
 		location.push_back($Player1Start.position)
 	else :
@@ -54,7 +54,7 @@ func _on_action():
 			$HUD/Skills.show()
 		else :
 			highestObject.execAttack(highestObject,players)
-	
+
 func setHighestBar(objects):
 	for object in objects :
 		var actionBarVal = object.get_node("ActionBar").value

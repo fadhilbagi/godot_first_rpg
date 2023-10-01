@@ -1,10 +1,12 @@
 extends Node2D
 
 var battleService
+var battleground
 var targetLowestHp
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	battleService = get_node("/root/Battleground/BattleService")
+	battleground = get_node("/root/Battleground")
 	pass # Replace with function body.
 
 
@@ -14,11 +16,11 @@ func _process(delta):
 	
 func attack(executer,targets):
 	var lowestHp = null
+	var skill = battleground.skills_scene.instantiate()
 	
 	for target in targets:
 		if lowestHp == null || lowestHp > target.hp :
 			lowestHp = target.hp
 			targetLowestHp = target
 	
-	battleService.DealDamage(targetLowestHp,executer.attack)
-	battleService.EndTurn(executer)	
+	battleService.defaultAttack(executer,skill,targetLowestHp.position,targetLowestHp)

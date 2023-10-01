@@ -1,6 +1,22 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cvj778tecl3qn"]
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://cvj778tecl3qn"]
 
 [ext_resource type="Texture2D" uid="uid://22jqrin7wgvu" path="res://Tilemap/character_zombie_sheetHD.png" id="1_73xim"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnckm"]
+atlas = ExtResource("1_73xim")
+region = Rect2(0, 768, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfukf"]
+atlas = ExtResource("1_73xim")
+region = Rect2(192, 768, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bwjq"]
+atlas = ExtResource("1_73xim")
+region = Rect2(384, 768, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4g7y"]
+atlas = ExtResource("1_73xim")
+region = Rect2(576, 768, 192, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cb1pf"]
 atlas = ExtResource("1_73xim")
@@ -8,6 +24,23 @@ region = Rect2(0, 0, 192, 256)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnckm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfukf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bwjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4g7y")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cb1pf")

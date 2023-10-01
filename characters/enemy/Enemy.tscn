@@ -10,6 +10,7 @@
 position = Vector2(0, -2)
 scale = Vector2(0.1, 0.1)
 sprite_frames = ExtResource("1_ua3gk")
+flip_h = true
 script = ExtResource("2_vpaj8")
 
 [node name="HealthBar" parent="." instance=ExtResource("3_wqqju")]
