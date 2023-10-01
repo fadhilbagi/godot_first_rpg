@@ -7,6 +7,7 @@ func _ready():
 	battleground = get_parent()
 	speedTimer= get_parent().get_node("SpeedTimer")
 	get_node("/root/Battleground/HUD/Skills/Skill1").button_down.connect(_on_skill_1_button_down)
+	get_node("/root/Battleground/HUD/Skills/Skill3").button_down.connect(_on_skill_3_button_down)
 	pass # Replace with function body.
 
 
@@ -17,25 +18,24 @@ func _process(delta):
 func _on_skill_1_button_down():
 	var executer = battleground.highestObject
 	var target =  battleground.mob
-	var skill = battleground.skills_scene.instantiate()
+	var skill = battleground.skills_scene[0].instantiate()
 	
 	get_node("/root/Battleground/HUD/Skills").hide()
-	defaultAttack(executer,skill,target.position,target)
+	defaultAttack(executer,skill,target.position,target,0.8)
 
 func DealDamage(target,value):
 	target.takeDamage(value)
 
 func EndTurn(object):
-	await get_tree().create_timer(0.5).timeout
+	#await get_tree().create_timer(0.5).timeout
 	object.get_node("ActionBar").value = 0
 	speedTimer.start()
 
 func StartSkill(skill,target):
-	skill.position = target.position
+	skill.position = target
 	get_parent().add_child(skill)
 	skill.play("default")
 func EndSkill(skill):
-	await get_tree().create_timer(0.6).timeout
 	skill.queue_free()
 
 func StartAttack(object):
@@ -43,11 +43,24 @@ func StartAttack(object):
 func EndAttack(object):
 	object.play("default")
 
-func defaultAttack(executer,skill,targetLocation,targetObject):
+func defaultAttack(executer,skill,targetLocation,targetObject,delay):
 	StartAttack(executer)
 	await get_tree().create_timer(0.6).timeout
-	StartSkill(skill,targetObject)
+	StartSkill(skill,targetLocation)
 	EndAttack(executer)
+	await get_tree().create_timer(delay).timeout
 	DealDamage(targetObject,executer.attack)
 	EndSkill(skill)
+	await get_tree().create_timer(0.8).timeout
 	EndTurn(executer)
+
+
+func _on_skill_3_button_down():
+	var executer = battleground.highestObject
+	var target =  battleground.mob
+	var skill = battleground.skills_scene[1].instantiate()
+	var targetAoe = get_node("/root/Battleground/EnemyAoe")
+	
+	get_node("/root/Battleground/HUD/Skills").hide()
+	defaultAttack(executer,skill,targetAoe.position,target,1.2)
+	pass # Replace with function body.

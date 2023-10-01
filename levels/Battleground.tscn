@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://csuta0pmq5g5w"]
+[gd_scene load_steps=8 format=3 uid="uid://csuta0pmq5g5w"]
 
 [ext_resource type="Script" path="res://levels/Battleground.gd" id="1_vlntp"]
 [ext_resource type="PackedScene" uid="uid://ctkuvofk1bp6v" path="res://characters/enemy/Enemy.tscn" id="2_w3ppg"]
@@ -6,22 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://bjn7flketgol5" path="res://feature/skills/skill1/skill1.tscn" id="4_2b3db"]
 [ext_resource type="TileSet" uid="uid://cbovk57ufb4qx" path="res://levels/Battleground.tres" id="4_ph52o"]
 [ext_resource type="Script" path="res://feature/battle/BattleService.gd" id="5_dmgp0"]
+[ext_resource type="PackedScene" uid="uid://c21uqtsbw37l" path="res://feature/skills/skill3/skill3.tscn" id="5_ib3d2"]
 
 [node name="Battleground" type="Node2D"]
 script = ExtResource("1_vlntp")
 mob_scene = ExtResource("2_w3ppg")
 player_scene = ExtResource("3_fm3ki")
-skills_scene = ExtResource("4_2b3db")
+skills_scene = Array[PackedScene]([ExtResource("4_2b3db"), ExtResource("5_ib3d2")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(572, 351)
+position = Vector2(572, 354)
 zoom = Vector2(5, 5)
 
 [node name="Player1Start" type="Marker2D" parent="."]
 position = Vector2(534, 348)
 
 [node name="Enemy1Start" type="Marker2D" parent="."]
-position = Vector2(611, 348)
+position = Vector2(607, 348)
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -47,5 +48,20 @@ offset_top = 506.0
 offset_right = 787.0
 offset_bottom = 592.0
 
+[node name="Skill2" type="Button" parent="HUD/Skills"]
+offset_left = 848.0
+offset_top = 506.0
+offset_right = 938.0
+offset_bottom = 592.0
+
+[node name="Skill3" type="Button" parent="HUD/Skills"]
+offset_left = 998.0
+offset_top = 507.0
+offset_right = 1088.0
+offset_bottom = 593.0
+
 [node name="BattleService" type="Node2D" parent="."]
 script = ExtResource("5_dmgp0")
+
+[node name="EnemyAoe" type="Marker2D" parent="."]
+position = Vector2(645, 356)

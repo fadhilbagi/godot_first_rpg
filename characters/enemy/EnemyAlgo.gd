@@ -16,11 +16,11 @@ func _process(delta):
 	
 func attack(executer,targets):
 	var lowestHp = null
-	var skill = battleground.skills_scene.instantiate()
+	var skill = battleground.skills_scene[0].instantiate()
 	
 	for target in targets:
 		if lowestHp == null || lowestHp > target.hp :
 			lowestHp = target.hp
 			targetLowestHp = target
 	
-	battleService.defaultAttack(executer,skill,targetLowestHp.position,targetLowestHp)
+	battleService.defaultAttack(executer,skill,targetLowestHp.position,targetLowestHp,0.6)

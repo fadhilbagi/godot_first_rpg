@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c21uqtsbw37l"]
+
+[ext_resource type="SpriteFrames" uid="uid://bb8bf5od7cp4m" path="res://feature/skills/skill3/skill3.tres" id="1_q0p3f"]
+
+[node name="skill3" type="AnimatedSprite2D"]
+scale = Vector2(0.4, 0.4)
+sprite_frames = ExtResource("1_q0p3f")
+frame_progress = 0.827686
