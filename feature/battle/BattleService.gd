@@ -16,19 +16,17 @@ func _process(delta):
 	
 func _on_skill_1_button_down():
 	var executer = battleground.highestObject
+	var skill = battleground.skills_scene.instantiate()
+	
 	get_node("/root/Battleground/HUD/Skills").hide()
-	executer.play("attack")
+	StartAttack(executer)
 	await get_tree().create_timer(0.6).timeout
 	
-	var skill = battleground.skills_scene.instantiate()
-	skill.position = battleground.mob_spawn_location[0]
-	get_parent().add_child(skill)
-	skill.play("default")
-	battleground.highestObject.play("default")
+	StartSkill(skill)
+	EndAttack(executer)
 	DealDamage(battleground.mob,executer.attack)
-	StopSkill(skill)
+	EndSkill(skill)
 	EndTurn(executer)
-	pass 
 
 func DealDamage(target,value):
 	target.takeDamage(value)
@@ -38,6 +36,14 @@ func EndTurn(object):
 	object.get_node("ActionBar").value = 0
 	speedTimer.start()
 
-func StopSkill(skill):
+func StartSkill(skill):
+	skill.position = battleground.mob_spawn_location[0]
+	get_parent().add_child(skill)
+	skill.play("default")
+func EndSkill(skill):
 	await get_tree().create_timer(0.6).timeout
 	skill.queue_free()
+func StartAttack(object):
+	object.play("attack")
+func EndAttack(object):
+	object.play("default")

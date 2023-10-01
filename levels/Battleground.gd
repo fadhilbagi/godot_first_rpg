@@ -18,16 +18,10 @@ func _ready():
 	get_tree().call_group(&"players", &"queue_free")
 	
 	player = player_scene.instantiate()
-	player_spawn_location.push_back($Player1Start.position) 
-	player.position = player_spawn_location[0]
-	add_child(player)
-	player.get_node("ActionBar").action.connect(_on_action)
+	prepareAndInstanciate(player,player_spawn_location,0)
 	
 	mob = mob_scene.instantiate()
-	mob_spawn_location.push_back($Enemy1Start.position)
-	mob.position = mob_spawn_location[0]
-	add_child(mob)
-	mob.get_node("ActionBar").action.connect(_on_action)
+	prepareAndInstanciate(mob,mob_spawn_location,0)
 	
 	$HUD/Skills.hide()
 	$SpeedTimer.start()
@@ -36,6 +30,14 @@ func _ready():
 func _process(delta):
 	pass
 
+func prepareAndInstanciate(object,location,index):
+	if(object.name == "Player"):
+		location.push_back($Player1Start.position)
+	else :
+		location.push_back($Enemy1Start.position)
+	object.position = location[0]
+	add_child(object)
+	object.get_node("ActionBar").action.connect(_on_action)
 
 func _on_action():
 	$SpeedTimer.stop()
