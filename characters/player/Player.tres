@@ -1,6 +1,22 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://bf4a5xsoyq1yo"]
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://bf4a5xsoyq1yo"]
 
 [ext_resource type="Texture2D" uid="uid://dcjuv6xet6ihm" path="res://Tilemap/character_maleAdventurer_sheetHD.png" id="1_sey5l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4034y"]
+atlas = ExtResource("1_sey5l")
+region = Rect2(0, 768, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hge0r"]
+atlas = ExtResource("1_sey5l")
+region = Rect2(192, 768, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02tvi"]
+atlas = ExtResource("1_sey5l")
+region = Rect2(384, 768, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eb5h"]
+atlas = ExtResource("1_sey5l")
+region = Rect2(576, 768, 192, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_udkk4"]
 atlas = ExtResource("1_sey5l")
@@ -8,6 +24,23 @@ region = Rect2(0, 0, 192, 256)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_4034y")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_hge0r")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_02tvi")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_5eb5h")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_udkk4")

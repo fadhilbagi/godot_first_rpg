@@ -25,3 +25,4 @@ func start(pos):
 func takeDamage(damage):
 	hp -= damage 
 
+

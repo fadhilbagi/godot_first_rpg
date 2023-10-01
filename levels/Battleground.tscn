@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://csuta0pmq5g5w"]
+[gd_scene load_steps=7 format=3 uid="uid://csuta0pmq5g5w"]
 
 [ext_resource type="Script" path="res://levels/Battleground.gd" id="1_vlntp"]
 [ext_resource type="PackedScene" uid="uid://ctkuvofk1bp6v" path="res://characters/enemy/Enemy.tscn" id="2_w3ppg"]
 [ext_resource type="PackedScene" uid="uid://c05hqagofqom2" path="res://characters/player/Player.tscn" id="3_fm3ki"]
+[ext_resource type="PackedScene" uid="uid://bjn7flketgol5" path="res://feature/skills/skill1/skill1.tscn" id="4_2b3db"]
 [ext_resource type="TileSet" uid="uid://cbovk57ufb4qx" path="res://levels/Battleground.tres" id="4_ph52o"]
 [ext_resource type="Script" path="res://feature/battle/BattleService.gd" id="5_dmgp0"]
 
@@ -10,6 +11,7 @@
 script = ExtResource("1_vlntp")
 mob_scene = ExtResource("2_w3ppg")
 player_scene = ExtResource("3_fm3ki")
+skills_scene = ExtResource("4_2b3db")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(572, 351)
@@ -47,5 +49,3 @@ offset_bottom = 592.0
 
 [node name="BattleService" type="Node2D" parent="."]
 script = ExtResource("5_dmgp0")
-
-[connection signal="button_down" from="HUD/Skills/Skill1" to="." method="_on_skill_1_button_down"]

@@ -1,9 +1,14 @@
 extends Node2D
 @export var mob_scene: PackedScene
 @export var player_scene: PackedScene
+@export var skills_scene: PackedScene
 
 var player
 var mob
+var skill 
+
+var player_spawn_location = []
+var mob_spawn_location = []
 var highestBar
 var highestObject
 
@@ -13,21 +18,19 @@ func _ready():
 	get_tree().call_group(&"players", &"queue_free")
 	
 	player = player_scene.instantiate()
-	var player_spawn_location = $Player1Start.position
-	player.position = player_spawn_location
+	player_spawn_location.push_back($Player1Start.position) 
+	player.position = player_spawn_location[0]
 	add_child(player)
 	player.get_node("ActionBar").action.connect(_on_action)
 	
 	mob = mob_scene.instantiate()
-	var mob_spawn_location = $Enemy1Start.position
-	mob.position = mob_spawn_location
+	mob_spawn_location.push_back($Enemy1Start.position)
+	mob.position = mob_spawn_location[0]
 	add_child(mob)
 	mob.get_node("ActionBar").action.connect(_on_action)
 	
-	
 	$HUD/Skills.hide()
 	$SpeedTimer.start()
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -58,9 +61,4 @@ func setHighestBar(objects):
 			highestBar = actionBarVal
 
 
-func _on_skill_1_button_down():
-	$HUD/Skills.hide()
-	$BattleService.DealDamage(mob,highestObject.attack)
-	$BattleService.EndTurn(highestObject)
-	
-	pass # Replace with function body.
+
