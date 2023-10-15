@@ -21,10 +21,17 @@ func _on_skill_1_button_down():
 	var skill = battleground.skills_scene[0].instantiate()
 	
 	get_node("/root/Battleground/HUD/Skills").hide()
-	defaultAttack(executer,skill,target.position,target,0.8)
+	defaultAttack(executer,skill,target.position,target,0.1)
 
 func DealDamage(target,value):
 	target.takeDamage(value)
+	spawn_effect_damage(battleground.damage_scene,target,value)
+	
+func spawn_effect_damage(EFFECT,target,value):
+	var effect = EFFECT.instantiate()
+	effect.position = target.position
+	battleground.add_child(effect)
+	effect.label.text = str(value)
 
 func EndTurn(object):
 	#await get_tree().create_timer(0.5).timeout
@@ -64,3 +71,5 @@ func _on_skill_3_button_down():
 	get_node("/root/Battleground/HUD/Skills").hide()
 	defaultAttack(executer,skill,targetAoe.position,target,1.2)
 	pass # Replace with function body.
+
+

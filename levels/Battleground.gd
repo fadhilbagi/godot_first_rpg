@@ -2,6 +2,7 @@ extends Node2D
 @export var mob_scene: PackedScene
 @export var player_scene: PackedScene
 @export var skills_scene: Array[PackedScene]
+@export var damage_scene: PackedScene
 
 var player
 var mob

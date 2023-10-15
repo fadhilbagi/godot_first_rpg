@@ -23,4 +23,4 @@ func attack(executer,targets):
 			lowestHp = target.hp
 			targetLowestHp = target
 	
-	battleService.defaultAttack(executer,skill,targetLowestHp.position,targetLowestHp,0.6)
+	battleService.defaultAttack(executer,skill,targetLowestHp.position,targetLowestHp,0.1)

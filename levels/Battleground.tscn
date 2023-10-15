@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://csuta0pmq5g5w"]
+[gd_scene load_steps=9 format=3 uid="uid://csuta0pmq5g5w"]
 
 [ext_resource type="Script" path="res://levels/Battleground.gd" id="1_vlntp"]
 [ext_resource type="PackedScene" uid="uid://ctkuvofk1bp6v" path="res://characters/enemy/Enemy.tscn" id="2_w3ppg"]
@@ -7,12 +7,14 @@
 [ext_resource type="TileSet" uid="uid://cbovk57ufb4qx" path="res://levels/Battleground.tres" id="4_ph52o"]
 [ext_resource type="Script" path="res://feature/battle/BattleService.gd" id="5_dmgp0"]
 [ext_resource type="PackedScene" uid="uid://c21uqtsbw37l" path="res://feature/skills/skill3/skill3.tscn" id="5_ib3d2"]
+[ext_resource type="PackedScene" uid="uid://csdwb8lw0wyxc" path="res://feature/battle/damage_indicator.tscn" id="6_oumub"]
 
 [node name="Battleground" type="Node2D"]
 script = ExtResource("1_vlntp")
 mob_scene = ExtResource("2_w3ppg")
 player_scene = ExtResource("3_fm3ki")
 skills_scene = Array[PackedScene]([ExtResource("4_2b3db"), ExtResource("5_ib3d2")])
+damage_scene = ExtResource("6_oumub")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(572, 354)
